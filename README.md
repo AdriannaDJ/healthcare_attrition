@@ -23,6 +23,7 @@ This project aims to identify the key factors influencing employee attrition wit
 
 **Data Points:**
 
+* **Employee ID:** Unique identifier for each employee
 * **Demographics:** Age, gender, MaritalStatus, Education, EducationField, DistanceFromHome, etc.
 * **Work Characteristics:**
     * BusinessTravel
@@ -39,13 +40,7 @@ This project aims to identify the key factors influencing employee attrition wit
     * RelationshipSatisfaction
     * StandardHours
     * Shift
-    * TotalWorkingYears
-    * TrainingTimesLastYear
-    * WorkLifeBalance
-    * YearsAtCompany
-    * YearsInCurrentRole
-    * YearsSinceLastPromotion
-    * YearsWithCurrManager
+
 
 **Required Libraries:**
 
