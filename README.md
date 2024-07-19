@@ -59,8 +59,8 @@ This project aims to identify the key factors influencing employee attrition wit
 
 1. **Clone the Repository:**
    ```bash
-   git clone <repository_url>
-   cd <repository_name>
+   git clone <git@github.com:AdriannaDJ/healthcare_attrition.git>
+   cd <healthcare_attrition>
    ```
 2. **Run Jupyter Notebook:**
    ```bash
