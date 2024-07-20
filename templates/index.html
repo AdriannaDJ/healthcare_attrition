@@ -1,43 +1,89 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <!-- Required meta tags -->
+    <title>Healthcare Attrition Prediction</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        body {
+            background: linear-gradient(90deg, rgba(255,0,0,1) 0%, rgba(255,154,0,1) 20%, rgba(208,222,33,1) 40%, rgba(79,220,74,1) 60%, rgba(63,218,216,1) 80%, rgba(47,128,237,1) 100%, rgba(204,51,255,1) 120%);
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        h1, h4 {
+            text-align: center;
+        }
+        label, select, input[type="submit"], input[type="text"] {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        input[type="submit"] {
+            background-color: #fff;
+            color: #000;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #ddd;
+        }
+        form > div {
+            margin-bottom: 20px;
+        }
+        form label {
+            margin-bottom: 5px;
+        }
+        form input[type="number"],
+        form select {
+            width: 100%; 
+            padding: 10px; 
+            border-radius: 5px; 
+        }
+    </style>
 </head>
 <body>
     <div class='container'>
-        <div class='row'>
-            <div class='col-md-12'>
-                <h1>This is a sample app</h1>
-            </div>
-        </div>
+        <h1>Healthcare Attrition Prediction</h1>
         <div class='row'>
             <div class='col-md-6'>
+                <h5 align="left">Complete the form below:</h4>
                 <form action="/" method='post'>
                     {% for key, value in choices.items() %}
-                        <label for="{{key}}">{{key}}</label>
-                        {% if value is not none %}
-                        <select id="{{key}}" name='{{key}}'>
-                            {% for choice in value %}
-                            <option value='{{choice}}'>{{choice}}</option>
-                            {% endfor %}
-                        </select>
-                        {% else %}
-                        <input type='number' id={"{{key}}" name='{{key}}' value=0>
-                        {% endif %}
-                        <br>
+                        <div>
+                            <label for="{{key}}">{{ camel_case_to_spaces(key) }}</label>
+                            {% if value is not none %}
+                                <select id="{{key}}" name='{{key}}'>
+                                    {% for choice in value %}
+                                    <option value='{{choice}}'>{{choice}}</option>
+                                    {% endfor %}
+                                </select>
+                            {% else %}
+                                <input type='number' id="{{key}}" name='{{key}}' value=0>
+                            {% endif %}
+                        </div>
                     {% endfor %}
                     <input type="submit" value="Submit">
                 </form>
-                <p>{{result}}</p>
             </div>
             <div class='col-md-6'>
-                <h4>Below is a sample input for YES prediction</h4>
-                <img src="{{url_for('static', filename='images/sample_yes.png')}}" />
+                <h5 align="left">Result:</h4>
+                    <div id="word-cloud">
+                        {% if result %}
+                        <img src="{{ url_for('static', filename='wordcloud.png') }}" alt="Word Cloud">
+                        {% endif %}
+                        <p>{{result}}</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
