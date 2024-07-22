@@ -2,7 +2,6 @@ from flask import Flask, render_template, request
 import pickle
 import pandas as pd
 import json
-from wordcloud import WordCloud
 import os
 import re
 
@@ -35,7 +34,6 @@ def index():
     if request.method == 'POST':
         input_data = request.form.to_dict()
         result = predict(input_data)
-        generate_wordcloud(result)
         return render_template('index.html', choices=choices, result=result, input_data=json.dumps(input_data), camel_case_to_spaces=camel_case_to_spaces)
     else: 
         return render_template('index.html', choices=choices, camel_case_to_spaces=camel_case_to_spaces)
@@ -55,14 +53,8 @@ def predict(input_data):
     output = model.predict(X_transformed)
     return output[0]
 
-def generate_wordcloud(prediction):
-    text = prediction
-    wordcloud = WordCloud(width=800, height=400, background_color='white').generate(text)
-    # Save the word cloud image
-    wordcloud_path = os.path.join('static', 'wordcloud.png')
-    wordcloud.to_file(wordcloud_path)
-
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
+
 
 
