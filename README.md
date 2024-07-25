@@ -4,7 +4,8 @@ Project Team 6
 
 **Objective:**
 
-This project leverages machine learning techniques to build a predictive model that identifies factors contributing to employee attrition (turnover) within the healthcare industry. By understanding the key drivers behind employees leaving, healthcare organizations can implement targeted strategies to improve retention and foster a more positive work environment.
+This project aims to identify the key factors influencing employee attrition within healthcare. We created a web application that can predict if healthcare workers will remain in their current role. By understanding the drivers behind employee turnover, we can develop targeted strategies to improve retention rates and create a more supportive work environment for healthcare professionals.
+
 
 **Project Structure:**
 
