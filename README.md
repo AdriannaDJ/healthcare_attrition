@@ -58,3 +58,8 @@ This project leverages machine learning techniques to build a predictive model t
    - Execute `flask run` from your terminal.
    - Open your browser and navigate to `http://127.0.0.1:5000/`.
    - Fill out the form with employee details to get attrition predictions.
+  
+**Resources**
+* Data Resource: https://www.kaggle.com/datasets/jpmiller/employee-attrition-for-healthcare/data
+* Scaffolding for flask/html/app connection for a machine learning model: https://github.com/kevinclee26/sample_ml_app
+* Ada Booster Classification Code: https://www.datacamp.com/tutorial/adaboost-classifier-python
